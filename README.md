@@ -52,11 +52,11 @@ deactivate
 
 1. 프로젝트 생성
 ```
-django-admin startproject django_exercise
+django-admin startproject django_project
 ```
 
 2. Django 구조 
-(생성한 프로젝트는 django_exercise의 하위 파일)
+(생성한 프로젝트는 django_project의 하위 파일)
 * settings.py : 전반적인 장고의 설정을 가지고 있는 파일
 * urls.py : 프로젝트의 url을 관리하는 파일
 * wsgi.py : 웹서버와 연동하기 위한 파일
@@ -81,14 +81,14 @@ python manage.py runserver
 
 ## (3) Django 어플리케이션 생성
 
-1. 경로 (/Users/gimbogyeong/server/django_exercise)
+1. 경로 (/Users/gimbogyeong/server/django_project)
 ```
 python manage.py startapp blog
 ```
 
 2. 어플리케이션 등록
 - 장고 어플리케이션을 생성하였으니, 장고 프로젝트에 새로 생성한 어플리케이션을 등록해야한다.
-- 장고 프로젝트를 관리하는 django_exercise/settings.py를 열고 어플리케이션 등록
+- 장고 프로젝트를 관리하는 django_project/settings.py를 열고 어플리케이션 등록
 ```
 INSTALLED_APPS = [
 .
