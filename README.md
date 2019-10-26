@@ -62,13 +62,13 @@ django-admin startproject django_project
     * wsgi.py : 웹서버와 연동하기 위한 파일
     * manage.py : 프로젝트 관리 (DB의 migration 생성 및 실행, 로컬에서 웹서버 가동 등)
 
-3. **settings.py** 파일 수정 (108, 114 line)
+3. `settings.py` 파일 수정 (108, 114 line)
 ```
 TIME_ZONE = 'Asia/Seoul'
 USE_TZ = False
 ```
 
-4. static 파일을 다루기 위해 **STATIC_ROOT** 파일 추가
+4. static 파일을 다루기 위해 `STATIC_ROOT` 파일 추가
 ```
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -88,7 +88,7 @@ python manage.py startapp blog
 
 2. 어플리케이션 등록
 - 장고 어플리케이션을 생성하였으니, 장고 프로젝트에 새로 생성한 어플리케이션을 등록해야한다.
-- 장고 프로젝트를 관리하는 **django_project/settings.py**를 열고 어플리케이션 등록
+- 장고 프로젝트를 관리하는 `django_project/settings.py`를 열고 어플리케이션 등록
 ```
 INSTALLED_APPS = [
 .
@@ -101,7 +101,7 @@ INSTALLED_APPS = [
 
 
 ## (4) 모델(Model) 생성
-- **blog/models.py**를 열고 아래의 내용을 추가
+- `blog/models.py`를 열고 아래의 내용을 추가
 
 ```python
 from django.db import models
@@ -138,22 +138,24 @@ class Post(models.Model):
 1. 모델로부터 데이터베이스 테이블을 생성하기 위한 마이그레이션 파일 생성
 ```
 python manage.py makemigrations blog
-```
-**Migrations for 'blog' :
+
+Migrations for 'blog' :
     blog/migrations/0001_initial.py
-        -Create model Post**
+    - Create model Post**
+```
 - 위와 같은 글이 출력되면 정상적으로 생성된 것
 
 2. 모델로부터 생성한 마이그레이션 파일을 이용하여 데이터베이스 테이블 생성
 ```
 python manage.py migrate blog
-```
-**Operations to perform:
+
+Operations to perform:
     Apply all migrations: blog
     Running migrations:
     Applying contenttypes.0001_initial... OK
     Applying auth.0001_initial... OK
     Applying blog.0001_initial... OK**
+```
 - 위와 같은 글이 출력되면 정상적으로 테이블 생성된 것
 
 ## (6)슈퍼유저 등록
@@ -171,7 +173,7 @@ Password (again):
 ```
 python manage.py runserver
 ```
-http://127.0.0.1:8000/admin에 접속
+`http://127.0.0.1:8000/admin` 에 접속
 
 ## (8) 관리자 페이지에 모델 등록
 - 장고가 기본적으로 제공하는 관리자 페이지에서 우리가 만든 장고 어플리케이션 모델을 관리하기 위해서는 모델을 등록해야한다.
@@ -182,7 +184,7 @@ from .models import Post
 
 admin.site.register(Post)
 ```
-새로고침 후 관리자 페이지를 확인하면 **blog/admin.py** 장고 어플리케이션의 모델이 화면에 표시된다. 
+새로고침 후 관리자 페이지를 확인하면 `blog/admin.py` 장고 어플리케이션의 모델이 화면에 표시된다. 
 
 - BLOG/Posts에 옆에 있는 +Add를 눌러 글을 작성
 
