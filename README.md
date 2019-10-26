@@ -245,3 +245,62 @@ blog_post = pd.read_sql('SELECT * FROM blog_post', con,index_col=None)
 
 5. (이 부분은 개인적으로 보기 편하게 \r\n기준으로 잘라서 보려고 작성했다.)
 ![split_rn](./image/split_rn.png)
+
+## (8) 라우팅(routing)
+: 어떤 url에 접속했을 때 해야할 작업에 연결시켜주는 것
+`django_project/urls.py` 파일을 열어 아래와 같이 수정해준다.
+
+```python
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('blog.urls')),
+]
+
+```
+추후에 생성할 `blog/urls.py`을 장고 프로젝트에 등록한다.
+
+코드가 작성되어 있는데 관리자 URL이 존재하는 것을 확인할 수 있다.
+
+## (9) 뷰(View) 생성
+- 어플리케이션의 라우팅을 통해 URL에 연결할 뷰(View)를 생성할 필요가 있다.
+- `blog/views.py`를 열고 아래와 같이 수정한다.
+```python
+from django.shortcuts import render
+
+def posts(request):
+return render(request,'blog/posts.html',{})
+```
+
+## (10) HTML 파일 생성
+
+`blog/templates/blog/posts.html` 파일 생성 후 html 코드 작성
+
+```html
+<html>
+    <head>
+        <title>Django</title>
+    </head>
+    <body>
+        github upload
+    </body>
+</html>
+```
+## (11) 라우팅 파일 생성
+- 블로그 웹 사이트에 해당하는 장고 어플리케이션을 위한 라우팅 파일을 생성해야한다.
+- `blog/urls.py` 파일을 생성하고 코드를 추가한다.
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.posts, name='posts'),
+]
+```
+`python manage.py runserver` 를 통해 서버를 실행하여 접속하면
+html 코드가 나타나는 것을 확인할 수 있다.
+![htmlcode](./image/htmlcode.png)
+
+:pushpin: 라우팅을 통해 내가 만든 화면과 URL을 연결시킬 수 있다.
