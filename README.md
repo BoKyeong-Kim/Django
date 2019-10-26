@@ -174,10 +174,15 @@ Password (again):
 python manage.py runserver
 ```
 `http://127.0.0.1:8000/admin` 에 접속
+![login_image](./image/login_image.png)
+- 슈퍼유저 등록시 지정했던 Username과 Password를 입력한다.
+
+![main_image](./image/main_image.png)
+위와 같이 접속된 관리자 페이지를 볼 수 있다.
 
 ## (8) 관리자 페이지에 모델 등록
 - 장고가 기본적으로 제공하는 관리자 페이지에서 우리가 만든 장고 어플리케이션 모델을 관리하기 위해서는 모델을 등록해야한다.
-**blog/admin.py**을 열고 *Post*모델을 등록시킨다.
+`blog/admin.py`을 열고 `Post`모델을 등록시킨다.
 ```python
 from django.contrib import admin
 from .models import Post
@@ -185,13 +190,17 @@ from .models import Post
 admin.site.register(Post)
 ```
 새로고침 후 관리자 페이지를 확인하면 `blog/admin.py` 장고 어플리케이션의 모델이 화면에 표시된다. 
+![change_main](./image/change_main.png)
+
 
 - BLOG/Posts에 옆에 있는 +Add를 눌러 글을 작성
+![upload](./image/upload.png)
 
 - 성공적으로 글이 올라간 것을 확인할 수 있다.
 
-## sqlite python parsor
+## sqlite python parser
 ### python pandas를 활용하여 sqlite파일을 확인하고 다룰 수 있다.
+* sqlite와 python을 parsing을 하면 DataFrame을 활용하여 데이터를 전처리할 수도 있고 csv로 저장 할 수 있다. :+1:
 
 1. import 해주고 sqlite파일이 있는 경로를 찾아 connect
 ```python
@@ -232,6 +241,8 @@ cursor.fetchall()
 ```python
 blog_post = pd.read_sql('SELECT * FROM blog_post', con,index_col=None)
 ```
+- blog_post를 입력하여 데이터베이스에 저장된 정보를 불러온다.
+![blog_post](./image/blog_post.png)
+
 5. (이 부분은 개인적으로 보기 편하게 \r\n기준으로 잘라서 보려고 작성했다.)
-
-
+![split_rn](./image/split_rn.png)
