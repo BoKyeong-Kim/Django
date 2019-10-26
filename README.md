@@ -191,11 +191,10 @@ admin.site.register(Post)
 ```
 새로고침 후 관리자 페이지를 확인하면 `blog/admin.py` 장고 어플리케이션의 모델이 화면에 표시된다. 
 ![change_main](./image/change_main.png)
+- **BLOG/Posts**에 옆에 있는 **+Add**를 눌러 글을 작성
 
 
-- BLOG/Posts에 옆에 있는 +Add를 눌러 글을 작성
 ![upload](./image/upload.png)
-
 - 성공적으로 글이 올라간 것을 확인할 수 있다.
 
 ## sqlite python parser
