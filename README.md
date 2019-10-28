@@ -704,6 +704,7 @@ class PostForm(forms.ModelForm):
     - 이외에도 `as_table`(<table>태그),  `as_ul`(<ul>태그) 가 있다.
 - 이 기능을 통해 위에서 만든  `form` 클래스에서 지정한 필드들이 표시된다.
 
+
 ## (18) 새로운 URL생성
 - `blog/urls.py`을 열고 수정한다.
 
@@ -757,6 +758,7 @@ def post_create(request):
 - `return redirect('post_detail', id=post.id)` : `redirect` 함수를 통해 `post_detail` 페이지로 리다이렉트 시킨다.
 - `form = PostForm()` : 만든 폼을 가져와서 `return render(request, 'blog/post_create.html',{'form':form})` 화면에 표시한다.
 
+
 ## (20) 링크 생성하기
 - `blog/posts.html` 파일을 열고 수정한다.
 ```html
@@ -782,6 +784,7 @@ def post_create(request):
 -  `Create Blog Post` 를 클릭하여 글을 작성하고  **Save**한다.
 
 ![post_create](./image/post_create.png)
+
 
 
 ## (21) 부트스트랩 템플릿 적용하기
@@ -815,6 +818,7 @@ def post_create(request):
 - `<link rel="stylesheet" href="{% static 'css/main.css' %}">` : 부트스트랩 css파일 링크를 추가한다.
 
 ![template_css](./image/template_css.png)
+
 
 
 
@@ -852,6 +856,7 @@ font-family: 'Staatliches', cursive;
 ### css로 꾸미기
 - `blog/templates/blog/posts.html` 파일 `<div>` 부분에 클래스를 주어  `css/main.css`에서 클래스 부분만 적용을 다르게 하여 꾸며보려고한다.
 - `blog/templates/blog/posts.html` 파일을 아래와 같이 수정하여 각 부분에 클래스를 지정해준다.
+
 ```html
 {% load static %}
 <html>
@@ -885,6 +890,7 @@ font-family: 'Staatliches', cursive;
 </html>
 ```
 
+
 - `css/main.css` 파일에서 지정한 클래스를 어떻게 디자인할지 작성한다.
 ```css
 h1 {
@@ -916,9 +922,12 @@ body {
 ```
 
 - 위의 코드를 저장한 뒤 새로고침하면 아래와 같이 화면이 변경된 것을 확인할 수 있다.
+
 ![blog_css](./image/blog_css.png)
 
+
 :eyes: 더 자세한 색상은 [HTML Color Names](https://www.w3schools.com/colors/colors_names.asp) 참고!
+
 
 ### 템플릿 확장
 -  모든 페이지에 확장되어 사용될 수 있게 기본 템플릿을 만들어두려고 한다.
@@ -1019,15 +1028,20 @@ body {
 {% endblock %}
 ```
 
-- 템플릿을 적용한 화면
+- 템플릿 적용한 화면
+
 ![post(1)](./image/post(1).png)
 
 
+
 - **New Post**를 클릭하여 게시글을 작성한다.
+
 ![post(2)](./image/post(2).png)
 
 
+
 - **Save**를 눌러 저장하면 새롭게 글이 생성된 것을 확인할 수 있다.
+
 ![post(3)](./image/post(3).png)
 
 
