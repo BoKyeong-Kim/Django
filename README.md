@@ -701,7 +701,7 @@ class PostForm(forms.ModelForm):
 
 - `{% csrf_token %}` : CSRF공격 (Cross-site Request Forgery)를 방지하기 위한 코드
 -  `{{form.as_p}}` : 뷰(View)로부터 전달받을 파라미터 `form`으로부터 단락 `as_p`(<p>태그)형식으로 표시
-    - 이외에도 `as_table`(<table>태그),  `as_ul`(<ul>태그) 가 있다.
+- 이외에도 `as_table`(<table>태그),  `as_ul`(<ul>태그) 가 있다.
 - 이 기능을 통해 위에서 만든  `form` 클래스에서 지정한 필드들이 표시된다.
 
 
