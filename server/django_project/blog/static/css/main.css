@@ -3,5 +3,24 @@ h1 {
 	font-family: 'Staatliches', cursive;
 }
 body {
-    padding-left: 30px;
+    padding-left: 20px;
+}
+.post {
+    margin-bottom: 70px;
+}
+.date {
+    color: #828282;
+}
+.content {
+    margin-left: 40px;
+}
+.page-header {
+    background-color: #ADD8E6;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
 }
