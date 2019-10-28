@@ -132,6 +132,7 @@ class Post(models.Model):
         3. Django admin에서 자동으로 만들어지는 form의 검증 형태
 - publish :  현재 시간을 받아서 날짜를 갱신
 - __str__ :  표준 파이썬 클래드 메소드 -- 문자열 반환
+
 :eyes: 더 자세한 사항은 [Django Model field reference](https://docs.djangoproject.com/en/1.10/ref/models/fields/#model-field-types) 참고!
 
 ## (5)모델(Model)과 DB
@@ -191,6 +192,7 @@ admin.site.register(Post)
 ```
 새로고침 후 관리자 페이지를 확인하면 `blog/admin.py` 장고 어플리케이션의 모델이 화면에 표시된다. 
 ![change_main](./image/change_main.png)
+
 - **BLOG/Posts**에 옆에 있는 **+Add**를 눌러 글을 작성
 
 
@@ -241,9 +243,11 @@ cursor.fetchall()
 blog_post = pd.read_sql('SELECT * FROM blog_post', con,index_col=None)
 ```
 - blog_post를 입력하여 데이터베이스에 저장된 정보를 불러온다.
+
 ![blog_post](./image/blog_post.png)
 
 5. (이 부분은 개인적으로 보기 편하게 \r\n기준으로 잘라서 보려고 작성했다.)
+
 ![split_rn](./image/split_rn.png)
 
 ## (8) 라우팅(routing)
@@ -301,6 +305,7 @@ urlpatterns = [
 ```
 `python manage.py runserver` 를 통해 서버를 실행하여 접속하면
 html 코드가 나타나는 것을 확인할 수 있다.
+
 ![htmlcode](./image/htmlcode.png)
 
 :pushpin: 라우팅을 통해 내가 만든 화면과 URL을 연결시킬 수 있다.
@@ -357,6 +362,7 @@ from django.contrib.auth.models import User
 ```
 
 - `python manage.py runserver`로 서버를 실행한 후 관리자 화면에서 데이터를 확인
+
 ![add_data](./image/add_data.png)
 
 
@@ -455,7 +461,7 @@ def posts(request):
 ```
 
 <변경 후>
-```
+```python
 from django.shortcuts import render
 from .models import Post
 
@@ -500,6 +506,7 @@ return render(request, 'blog/posts.html', {'posts': posts})
 
 
 -html을 수정한 뒤, `python manege.py runserver`로 서버를 켜서 `http://127.0.0.1:8000/`에 접속하면 아래와 같은 페이지가 나타난다.
+
 ![posts_modify](./image/posts_modify.png)
 
 
@@ -583,10 +590,13 @@ def post_detail(request, id):
     - 파라미터로 넘겨준 `id`를 별도로 변수를 전달받을 수 있다.
     
 - 그 후 `python manage.py runserver`를 실행하여  `http://127.0.0.1:8000/` 링크를 따라 들어가면 아래와 같이 링크가 걸린 페이지를 볼 수 있다.
+
 ![link_page](./image/link_page.png)
 
 - 링크를 클릭 또는  `http://127.0.0.1:8000/post/2/` 링크를 들어가면 상세 정보를 볼 수 있다.
+
 ![post_link](./image/post_link.png)
+
 
 ## (15) 정적파일(static flies) 적용
 - 여태까지 작성한 HTML파일에는 중복되는 코드가 많다.
@@ -642,13 +652,16 @@ color:blue;
 
 ![templates](./image/templates.png)
 
+
 ## (16) Django 폼(Form) 생성
 - 한가지만 더 하면 웹사이트가 완성된다 :heavy_exclamation_mark:
 - 폼(forms)으로 예쁘게 꾸밀 수 있다.
 - `ModelForm`을 생성해 자동으로 모델에 결과물을 저장할 수 있다.
 
 - `blog/forms.py` 파일을 생성한다.
-:bulb: 여기서 주의할 점 -  `blog/forms.py` 경로를  `blog/templates/blog/forms.py` 로 실수하면 모듈이 없다는 에러가 난다. **(ModuleNotFoundError: No module named 'blog.forms')** -- forms을 import했는데 찾을 수가 없기 때문
+
+:bulb: 여기서 주의할 점 -  `blog/forms.py` 경로를  `blog/templates/blog/forms.py` 로 실수하면 모듈이 없다는 에러가 난다. **(ModuleNotFoundError: No module named 'blog.forms')** 
+- forms을 import했는데 찾을 수가 없기 때문
 
 
 - `class PostForm` : PostForm이라는 아름으로 클래스를 생성하고 forms.ModelForm을 상속받는다.
@@ -767,6 +780,7 @@ def post_create(request):
 ![create_blog](./image/create_blog.png)
 
 -  `Create Blog Post` 를 클릭하여 글을 작성하고  **Save**한다.
+
 ![post_create](./image/post_create.png)
 
 
@@ -799,6 +813,7 @@ def post_create(request):
 ```
 - `{% load static %}`  : 정적파일 로딩
 - `<link rel="stylesheet" href="{% static 'css/main.css' %}">` : 부트스트랩 css파일 링크를 추가한다.
+
 ![template_css](./image/template_css.png)
 
 
@@ -810,7 +825,9 @@ body {
 padding-left: 30px;
 }
 ```
+
 ![body_padding](./image/body_padding.png)
+
 
 
 ### 폰트 바꾸기
@@ -825,8 +842,193 @@ font-family: 'Staatliches', cursive;
 ```
 
 - 그리고 새로고침을 하면 아래와 같이 폰트가 변경된 것을 확인할 수 있다.
+
 ![font_change](./image/font_change.png)
+
 
 :eyes: 더 다양한 폰트는 [fonts.google.com](https://fonts.google.com/?selection.family=Staatliches) 참고!
 
 
+### css로 꾸미기
+- `blog/templates/blog/posts.html` 파일 `<div>` 부분에 클래스를 주어  `css/main.css`에서 클래스 부분만 적용을 다르게 하여 꾸며보려고한다.
+- `blog/templates/blog/posts.html` 파일을 아래와 같이 수정하여 각 부분에 클래스를 지정해준다.
+```html
+{% load static %}
+<html>
+    <head>
+        <title>Django</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Bokyeoning blog</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for post in posts %}
+                    <div class="post">
+                        <div class = "date">
+                        <p>published: {{ post.published_at }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.content|linebreaksbr }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+```
+
+- `css/main.css` 파일에서 지정한 클래스를 어떻게 디자인할지 작성한다.
+```css
+h1 {
+    color:blue;
+    font-family: 'Staatliches', cursive;
+}
+body {
+    padding-left: 20px;
+}
+.post {
+    margin-bottom: 70px;
+}
+.date {
+    color: #828282;
+}
+.content {
+    margin-left: 40px;
+}
+.page-header {
+    background-color: #ADD8E6;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+```
+
+- 위의 코드를 저장한 뒤 새로고침하면 아래와 같이 화면이 변경된 것을 확인할 수 있다.
+![blog_css](./image/blog_css.png)
+
+:eyes: 더 자세한 색상은 [HTML Color Names](https://www.w3schools.com/colors/colors_names.asp) 참고!
+
+### 템플릿 확장
+-  모든 페이지에 확장되어 사용될 수 있게 기본 템플릿을 만들어두려고 한다.
+- 위에서 작성했던 `blog/templates/blog/posts.html`  파일에 작성했던 코드를 기본적인 템플릿으로 사용하기 위해 `blog/templates/blog/layout.html` 에 코드를 옮긴다.
+    - 기본 템플릿을 `layout.html`으로 사용하기 위함
+    
+- `blog/templates/blog/layout.html`  파일을 수정
+```html
+{% load static %}
+
+<html>
+    <head>
+        <title>Django</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Bokyeoning Blog</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+```
+
+- `blog/templates/blog/posts.html` 을 수정
+- 아래의 코드에서 `<a href="{% url 'post_detail' id=post.id %}">` 이 부분을 제외하고 작성하면 **NoReverseMatch** 에러가 난다.
+
+```html
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+    <a href="{% url 'post_create' %}"> New Post</a>
+    {% for post in posts %}
+        <a href="{% url 'post_detail' id=post.id %}">
+            <div class="post">
+                <div class="date">
+                    {{ post.published_at }}
+                </div>
+                <h1><a href="{% url 'post_detail' id=post.id %}">{{ post.title }}</a></h1>
+                <p>{{ post.content|linebreaksbr }}</p>
+            </div>
+        </a>
+    {% endfor %}
+{% endblock %}
+```
+
+- `{% block content %}` :  `block`을 만들어 탬플릿 태그로 HTML 내에 들어갈 수 있는 공간을 만든다.
+- `{% extends 'blog/layout.html' %}` : `posts.html` 파일이 `layout.html` 파일을 활용
+
+
+-  `blog/templates/blog/post_detail.html` 을 아래와 같이 수정하여 제목을 클릭하였을 때 세부 정보 하나를 볼 수 있게 코드를 구성한다.
+
+```html
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+    <a href="{% url 'post_detail' id=post.id %}">
+        <div class="post">
+            {% if post.published_at %}
+                <div class="date">
+                    {{ post.published_at }}
+                </div>
+            {% endif %}
+            <h1><a>{{ post.title }}</a></h1>
+            <p>{{ post.content|linebreaksbr }}</p>
+            <p></p>
+        </div>
+    </a>
+{% endblock %}
+``` 
+
+
+-  템플릿이 적용된 코드를 적용하여 `blog/templates/blog/post_create.html` 를 수정한다.
+```html
+{% extends 'blog/layout.html' %}
+
+{% block content %}
+    <a href="{% url 'posts' %}">
+    Post List
+    </a>
+    <h1><a>New post</a></h1>
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default" >Save</button>
+    </form>
+{% endblock %}
+```
+
+- 템플릿을 적용한 화면
+![post(1)](./image/post(1).png)
+
+
+- **New Post**를 클릭하여 게시글을 작성한다.
+![post(2)](./image/post(2).png)
+
+
+- **Save**를 눌러 저장하면 새롭게 글이 생성된 것을 확인할 수 있다.
+![post(3)](./image/post(3).png)
+
+
+### 블로그 완성! :v:
