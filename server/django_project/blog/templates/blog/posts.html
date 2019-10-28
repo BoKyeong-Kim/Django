@@ -1,8 +1,22 @@
+{% load static %}
 <html>
-  <head>
-    <title>Django</title>
-  </head>
-  <body>
-    github upload
-  </body>
+    <head>
+        <title>Django</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Staatliches&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    </head>
+    <body>
+        <div>
+            <h1><a href="/">Bokyeoning blog</a></h1>
+        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_at }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.content|linebreaksbr }}</p>
+            </div>
+        {% endfor %}
+    </body>
 </html>
