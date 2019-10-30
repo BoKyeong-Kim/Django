@@ -1050,7 +1050,7 @@ body {
 
 ## 헤로쿠(Heroku)  배포하기
 :question:.헤로쿠란? - 간단하게 말하면 클라우드 어플리케이션 플랫폼
-    - 헤로쿠(Heroku)는 웹 애플리케이션 배치 모델로 사용되는 여러 프로그래밍 언어를 지원하는 클라우드 PaaS이다. (위키백과)
+- 헤로쿠(Heroku)는 웹 애플리케이션 배치 모델로 사용되는 여러 프로그래밍 언어를 지원하는 클라우드 PaaS이다. (위키백과)
     
 
 1. 헤로쿠(Heroku) 회원 가입
@@ -1058,5 +1058,12 @@ body {
  - 절차는 다른 서비스와 비슷하다.  
  ![heroku](./image/heroku.png)
 
+
+2. 헤로쿠(Heroku) 앱(App) 생성하기
+- 헤로쿠에서 웹 서비스를 운영하기위해서는 앱을 생성해야한다.
+- **회원가입** -> **로그인** -> **Create new app**
+- App name과 Choose a region를 지정해주고 **Create app** 클릭. (무료이기 때문에 미국과 유럽만 선택할 수 있다.)
+![heroku_createapp](./image/heroku_createapp.png)
+ 
  
  
