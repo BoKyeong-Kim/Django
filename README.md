@@ -1065,5 +1065,41 @@ body {
 - App name과 Choose a region를 지정해주고 **Create app** 클릭. (무료이기 때문에 미국과 유럽만 선택할 수 있다.)
 ![heroku_createapp](./image/heroku_createapp.png)
  
- 
- 
+ 3. 헤로쿠(Heroku) CLI(Command Line Interface) 설치하기
+ - 헤로쿠(Heroku) CLI 설치 : https://devcenter.heroku.com/articles/heroku-cli
+ - Mac OS에서 아래의 명령어를 통해 헤로쿠 CLI를 설치한다.
+```
+brew tap heroku/brew && brew install heroku
+```
+:bulb: 여기서 주의할 점 - Mac의 경우 Xcode가 업데이트 되어있지않으면 설치가 안된다.
+
+
+- 아래와 같은 에러가 발생했을 경우, brew install gcc를 해준다.
+
+```
+Error: An exception occurred within a child process:
+  CompilerSelectionError: gcc cannot be built with any available compilers.
+Install GNU's GCC:
+  brew install gcc
+```
+
+- 하지만 `brew install gcc`를 했음에도 불구하고 같은 에러가 발생했을 경우
+-  `xcode-select --install`를 해준 뒤 `brew install gcc`를 해준다.
+
+
+
+4. 헤로쿠(Heroku) 로그인
+```
+heroku login
+```
+- 위와 같이 로그인 명령을 실행하면 로그인 화면이 웹 브라우저에 표시된다. (웹에 헤로쿠가 로그인 되어있는 상태에서 진행해야한다.)
+- CLI를 거치는 것이 핵심!
+- Log in 버튼 클릭
+
+![heroku_login](./image/heroku_login.png)
+
+- 정상적으로 로그인이 되면 아래와 같은 화면을 볼 수 있다.
+- 다시 CLI 화면으로 돌아간다.
+![heroku_loggedIn](./image/heroku_loggedIn.png)
+
+
